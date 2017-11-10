@@ -14,16 +14,17 @@
 	</div>
 
 	<script type="text/babel">
-		ReactDOM.render(
-			// Parent Element
-			<ul>
-				<li>Item 1</li>
-				<li>Item 2</li>
-				<li>Item 3</li>
-			</ul>,
-			// Where the elements go
-			document.getElementById('react-container')
-		);
+		var MyComponent = React.createClass({
+			render() {
+				return <div>
+					<h1>Hello World</h1>
+					<p>This is my first React component!</p>
+				</div>
+			}
+		});
+
+		ReactDOM.render(<MyComponent />,
+			document.getElementById('react-container'))
 	</script>
 
 </body>
