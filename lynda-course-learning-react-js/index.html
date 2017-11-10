@@ -15,14 +15,20 @@
 
 	<script type="text/babel">
 
-		const MyComponent = () => {
-			return <div>
-				<h1>Hello World</h1>
-				<p>This is my first React component!</p>
-			</div>	
-		}
+		var MyComponent = React.createClass({
+			render() {
+				return <div>
+					<h1>{this.props.text}</h1>
+					<p>This is my first React component!</p>
+				</div>					
+			}
+		});
 
-		ReactDOM.render(<MyComponent />,
+		ReactDOM.render(<div>
+				<MyComponent text="Hello World" />
+				<MyComponent text="I am a component" />
+				<MyComponent text="I have been reused" />
+			</div>,
 			document.getElementById('react-container'))
 	</script>
 
