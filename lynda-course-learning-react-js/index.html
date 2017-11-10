@@ -14,14 +14,15 @@
 	</div>
 
 	<script type="text/babel">
-		var MyComponent = React.createClass({
+
+		class MyComponent extends React.Component {
 			render() {
 				return <div>
 					<h1>Hello World</h1>
 					<p>This is my first React component!</p>
-				</div>
+				</div>	
 			}
-		});
+		}
 
 		ReactDOM.render(<MyComponent />,
 			document.getElementById('react-container'))
