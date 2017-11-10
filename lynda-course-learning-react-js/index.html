@@ -14,7 +14,14 @@
 
 	<script>
 		ReactDOM.render(
-			React.createElement('div', null, 'Hello World'),
+			// Parent Element
+			React.createElement('ul', null,
+				// Child elements
+				React.createElement('li', null, 'Item 1'),
+				React.createElement('li', null, 'Item 2'),
+				React.createElement('li', null, 'Item 3')
+			),
+			// Where the elements go
 			document.getElementById('react-container')
 		);
 	</script>
