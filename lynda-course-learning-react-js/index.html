@@ -16,13 +16,27 @@
 	<script type="text/babel">
 
 		var Note = React.createClass({
+			getInitialState() {
+				return {editing: false}
+			},
 			edit(){
-				alert("Editing note");
+				this.setState({editing: true});
+			},
+			save(){
+				this.setState({editing: false});
 			},
 			remove(){
 				alert("Removing note");
 			},
-			render() {
+			renderForm(){
+				return (
+					<div className="note">
+						<textarea></textarea>
+						<button onClick={this.save}>Save</button>
+					</div>
+				)
+			},
+			renderDisplay(){
 				return (
 					<div className="note">
 						<p>{this.props.children}</p>
@@ -32,42 +46,22 @@
 						</span>
 					</div>
 				)
-			}
-
-		});
-
-		var Checkbox = React.createClass({
-			getInitialState(){
-				return {checked: false}
-			},
-			handleCheck() {
-				this.setState({checked: !this.state.checked})
 			},
 			render() {
-				var msg;
-				if(this.state.checked) {
-					msg = "checked";
+				if (this.state.editing) {
+					return this.renderForm()
 				} else {
-					msg = "unchecked";
+					return this.renderDisplay();
 				}
-				return (
-					<div>
-						<input type="Checkbox" onChange={this.handleCheck} />
-						<p>This box is {msg}</p>
-					</div>
-				)
 			}
+
 		});
 
-		// ReactDOM.render(
-		// 	<Note>Hello World</Note>,
-		// 	document.getElementById('react-container')
-		// );
-
 		ReactDOM.render(
-			<Checkbox />,
+			<Note>Hello World</Note>,
 			document.getElementById('react-container')
 		);
+
 
 	</script>
 
