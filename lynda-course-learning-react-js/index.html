@@ -36,8 +36,36 @@
 
 		});
 
+		var Checkbox = React.createClass({
+			getInitialState(){
+				return {checked: false}
+			},
+			handleCheck() {
+				this.setState({checked: !this.state.checked})
+			},
+			render() {
+				var msg;
+				if(this.state.checked) {
+					msg = "checked";
+				} else {
+					msg = "unchecked";
+				}
+				return (
+					<div>
+						<input type="Checkbox" onClick={this.handleCheck} />
+						<p>This box is {msg}</p>
+					</div>
+				)
+			}
+		});
+
+		// ReactDOM.render(
+		// 	<Note>Hello World</Note>,
+		// 	document.getElementById('react-container')
+		// );
+
 		ReactDOM.render(
-			<Note>Hello World</Note>,
+			<Checkbox />,
 			document.getElementById('react-container')
 		);
 
