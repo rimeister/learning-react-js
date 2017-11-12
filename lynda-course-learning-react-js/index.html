@@ -73,22 +73,18 @@
 			getInitialState() {
 				return {
 					notes: [ 
-					{id: 0, note: 'Call Bob'},
-					{id: 1, note: 'Email Sarah'},
-					{id: 2, note: 'eat Lunnch'},
-					{id: 3, note: 'Finish proposal'}
+						{id: 0, note: 'Call Bob'},
+						{id: 1, note: 'Email Sarah'},
+						{id: 2, note: 'Eat Lunch'},
+						{id: 3, note: 'Finish proposal'}
 					]
 				}
 			},
 
-			update(newtext,id){
+			update(newText,id) {
 				var notes = this.state.notes.map(
-					note => (note.id) !== id) ?
-						note : 
-						...note,
-						note: newText
+					note => (note.id !== id) ? note : {...note, note: newText}
 				);
-
 				this.setState({notes});
 			},
 
@@ -98,25 +94,23 @@
 			},
 
 			eachNote(note) {
-				return <Note 
-						key={i} 
-						id={note.id}
-						onChange={this.update}
-						onRemove={this.remove}>{note.note}
-					</Note>
+				return (<Note key={note.id} 
+						id={note.id} 
+						onChange={this.update} 
+						onRemove={this.remove}>
+					{note.note}
+				</Note>)
 			},
 
 			render() {
-				return (
-					<div className='board'>
+				return (<div className='board'>
 						{this.state.notes.map(this.eachNote)}
-					</div>
-				)
+					</div>)
 			}
 		});
 
 		ReactDOM.render(
-			<Board count={10 } />,
+			<Board count={10} />,
 			document.getElementById('react-container')
 		);
 
