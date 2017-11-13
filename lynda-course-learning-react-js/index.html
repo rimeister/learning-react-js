@@ -19,6 +19,7 @@
 			getInitialState() {
 				return {editing: false}
 			},
+			// componentWillMount method runs right before elements are rendered
 			componentWillMount(){
 				this.style = {
 					right: this.randomBetween(0, window.innerWidth - 150, 'px'),
