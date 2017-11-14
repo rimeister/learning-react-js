@@ -3,8 +3,11 @@ import Draggable from 'react-draggable'
 
 class Note extends React.Component {
 
-	getInitialState() {
-		return {editing: false}
+	constructor () {
+	    super()
+	    this.state = {
+	      editing: false
+	    }
 	}
 
 	// componentWillMount method runs right before elements are rendered
