@@ -5,7 +5,7 @@ class Container extends React.Component {
 	render() {
 		return (
 			<Container id="react-container">
-				<Board count={50} />
+				<Board count={5} />
 			</Container>
 		)
 	}

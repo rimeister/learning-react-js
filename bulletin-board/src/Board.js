@@ -5,6 +5,22 @@ import PropTypes from 'prop-types'
 class Board extends React.Component {
   // Checks to see if the value of count is a number.
 
+  propTypes: {
+      count: PropTypes.number
+/*    count: function(props,propName){
+      if(typeof props[propName] !== "number") {
+        return new Error("The count must be a number");
+      }
+
+      // Checks to see if the value of propName ('count', in this case) is greater than 100
+      if(props[propName] > 100) {
+        return new Error("Creating " + props[propName] + " notes is ridiculous.")
+      }
+
+    }
+    */
+  }
+
   getInitialState() {
     return {
       notes: []
