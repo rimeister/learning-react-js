@@ -1,9 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom'
-import Container from './Container'
+import Board from './Board'
 import './index.css'
 
 import registerServiceWorker from './registerServiceWorker';
 
-ReactDOM.render(<Container />, document.getElementById('root'));
+ReactDOM.render(<Board />, document.getElementById('root'));
 registerServiceWorker();

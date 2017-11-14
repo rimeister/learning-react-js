@@ -84,7 +84,6 @@ class Board extends React.Component {
 
   render() {
     return (<div className='board'>
-        {this.state.notes.map(this.eachNote)}
         <button onClick={() => this.add("New note")}>+</button>
       </div>)
   }
