@@ -68,7 +68,7 @@ class Note extends React.Component {
 			</div>
 		)
 	}
-
+	
 	render() {
 		return (<Draggable>
 			{(this.state.editing) ? this.renderForm() : this.renderDisplay()}

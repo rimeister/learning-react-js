@@ -63,7 +63,6 @@ class Board extends React.Component {
 
   update(newText,id) {
     var notes = this.state.notes.map(
-      // Huh, guess this spread operator is part of ES6
       note => (note.id !== id) ? note : {...note, note: newText}
     );
     this.setState({notes});
@@ -77,8 +76,8 @@ class Board extends React.Component {
   eachNote(note) {
     return (<Note key={note.id} 
         id={note.id} 
-        onChange={this.update} 
-        onRemove={this.remove}>
+        onChange={() => this.update()} 
+        onRemove={() => this.remove()}>
       {note.note}
     </Note>)
   }
