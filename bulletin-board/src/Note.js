@@ -1,7 +1,9 @@
 import React from 'react'
 import './App.css'
+import Draggable from 'react-draggable'
 
-var Note = React.createClass({
+class Note extends React.Component {
+	
 	getInitialState() {
 		return {editing: false}
 	},
@@ -56,12 +58,12 @@ var Note = React.createClass({
 		)
 	},
 	render() {
-		return (<ReactDraggable>
+		return (<Draggable>
 			{(this.state.editing) ? this.renderForm() : this.renderDisplay()}
-		</ReactDraggable>
+		</Draggable>
 		)
 	}
 
-});
+}
 
 export default Note

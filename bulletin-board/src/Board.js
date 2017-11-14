@@ -2,7 +2,7 @@ import React from 'react'
 import './App.css'
 import Note from './Note'
 
-var Board = React.createClass({
+class Board extends React.Component {
   // Checks to see if the value of count is a number.
   propTypes: {
     count: function(props,propName){
@@ -85,7 +85,8 @@ var Board = React.createClass({
         <button onClick={() => this.add("New note")}>+</button>
       </div>)
   }
-});
+
+}
 
 
 export default Board
