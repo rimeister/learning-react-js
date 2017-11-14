@@ -1,41 +1,48 @@
 import React from 'react'
-import './App.css'
 import Draggable from 'react-draggable'
 
 class Note extends React.Component {
-	
+
 	getInitialState() {
 		return {editing: false}
-	},
+	}
+
 	// componentWillMount method runs right before elements are rendered
 	componentWillMount(){
 		this.style = {
 			right: this.randomBetween(0, window.innerWidth - 150, 'px'),
 			top: this.randomBetween(0, window.innerHeight - 150, 'px' )
 		}
-	},
+	}
+
 	componentDidUpdate() {
 		if (this.state.editing) {
 			this.refs.newText.focus()
 			this.refs.newText.select()
 		}
-	},
+	}
+
 	shouldComponentUpdate(nextProps, nextState) {
 		return this.props.children !== nextProps.children || this.state !== nextState
-	},
+	}
+
 	edit(){
 		this.setState({editing: true});
-	},
+	}
+
 	randomBetween(x,y,s) {
 		return (x + Math.ceil(Math.random() * (y-x))) + s
-	},
+	}
+
 	save(){
 		this.props.onChange(this.refs.newText.value, this.props.id);
 		this.setState({editing:false});
-	},
+	}
+
 	remove(){
 		this.props.onRemove(this.props.id);
-	},
+	}
+
 	renderForm(){
 		return (
 			<div className="note"
@@ -44,7 +51,8 @@ class Note extends React.Component {
 				<button onClick={this.save}>Save</button>
 			</div>
 		)
-	},
+	}
+
 	renderDisplay(){
 		return (
 			<div className="note"
@@ -56,7 +64,8 @@ class Note extends React.Component {
 				</span>
 			</div>
 		)
-	},
+	}
+
 	render() {
 		return (<Draggable>
 			{(this.state.editing) ? this.renderForm() : this.renderDisplay()}

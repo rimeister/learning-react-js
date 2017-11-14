@@ -1,28 +1,15 @@
 import React from 'react'
-import './App.css'
 import Note from './Note'
+import PropTypes from 'prop-types'
 
 class Board extends React.Component {
   // Checks to see if the value of count is a number.
-  propTypes: {
-    count: function(props,propName){
-      if(typeof props[propName] !== "number") {
-        return new Error("The count must be a number");
-      }
-
-      // Checks to see if the value of propName ('count', in this case) is greater than 100
-      if(props[propName] > 100) {
-        return new Error("Creating " + props[propName] + " notes is ridiculous.")
-      }
-
-    }
-  },
 
   getInitialState() {
     return {
       notes: []
     }
-  },
+  }
 
   componentWillMount() {
     if(this.props.count) {
@@ -38,13 +25,13 @@ class Board extends React.Component {
           console.log("Didn't connect to the API", err)
         })
     }
-  },
+  }
 
   // Generates new ID
   nextId() {
     this.uniqueId = this.uniqueId || 0
     return this.uniqueId++
-  },
+  }
 
   add(text) {
     var notes = [
@@ -55,7 +42,7 @@ class Board extends React.Component {
       }
     ];
     this.setState({notes});
-  },
+  }
 
   update(newText,id) {
     var notes = this.state.notes.map(
@@ -63,12 +50,12 @@ class Board extends React.Component {
       note => (note.id !== id) ? note : {...note, note: newText}
     );
     this.setState({notes});
-  },
+  }
 
   remove(id) {
     var notes = this.state.notes.filter(note => note.id !== id);
     this.setState({notes});
-  },
+  }
 
   eachNote(note) {
     return (<Note key={note.id} 
@@ -77,7 +64,7 @@ class Board extends React.Component {
         onRemove={this.remove}>
       {note.note}
     </Note>)
-  },
+  }
 
   render() {
     return (<div className='board'>

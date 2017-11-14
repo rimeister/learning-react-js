@@ -1,9 +1,9 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
-import Board from './Board'
-import './index.css';
+import ReactDOM from 'react-dom'
+import Container from './Container'
+import './index.css'
 
 import registerServiceWorker from './registerServiceWorker';
 
-ReactDOM.render(<Board count={50} />, document.getElementById('root'));
+ReactDOM.render(<Container />, document.getElementById('root'));
 registerServiceWorker();
