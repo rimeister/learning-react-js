@@ -26,6 +26,12 @@
 					top: this.randomBetween(0, window.innerHeight - 150, 'px' )
 				}
 			},
+			componentDidUpdate() {
+				if (this.state.editing) {
+					this.refs.newText.focus()
+					this.refs.newText.select()
+				}
+			},
 			edit(){
 				this.setState({editing: true});
 			},
@@ -43,7 +49,7 @@
 				return (
 					<div className="note"
 						style={this.style}>
-						<textarea ref="newText"></textarea>
+						<textarea ref="newText" defaultValue={this.props.children}></textarea>
 						<button onClick={this.save}>Save</button>
 					</div>
 				)
