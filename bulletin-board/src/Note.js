@@ -8,6 +8,11 @@ class Note extends React.Component {
 	    this.state = {
 	      editing: false
 	    }
+
+		this.edit = this.edit.bind(this)
+
+		this.save = this.save.bind(this)
+
 	}
 
 	// componentWillMount method runs right before elements are rendered
@@ -68,7 +73,7 @@ class Note extends React.Component {
 			</div>
 		)
 	}
-	
+
 	render() {
 		return (<Draggable>
 			{(this.state.editing) ? this.renderForm() : this.renderDisplay()}

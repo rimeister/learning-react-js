@@ -26,6 +26,11 @@ class Board extends React.Component {
     this.state = {
       notes: []
     }
+
+    this.update = this.update.bind(this)
+
+    this.remove = this.remove.bind(this)
+
   }
 
   componentWillMount() {
