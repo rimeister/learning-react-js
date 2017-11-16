@@ -1,7 +1,8 @@
-import React, { Component } from 'react';
-import Bootstrap from 'bootstrap'
-import logo from './logo.svg';
+import React, { Component } from 'react'
+import $ from 'jquery';
 import './App.css';
+window.jQuery = $;
+var Bootstrap = require('bootstrap');
 
 var todos = [
   // Array with list of ToDo objects in it.
@@ -37,7 +38,9 @@ class App extends Component {
 
   render() {
     return (
-
+      <div className="container">
+        <h4>Todo Count: <span className="badge">{this.state.todos.length}</span></h4>
+      </div>
     );
   }
 }
