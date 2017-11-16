@@ -12,7 +12,7 @@ class NiceOneBud extends Component {
 
   setTheNiceOne() {
     this.setState ({
-      isNice: true
+      isNice: !this.state.isNice
     })
   }
 

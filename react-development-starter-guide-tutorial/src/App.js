@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import $ from 'jquery';
+import NiceOneBud from './NiceOneBud';
 import './App.css';
 window.jQuery = $;
 var Bootstrap = require('bootstrap');
@@ -58,6 +59,7 @@ class App extends Component {
             </li>
           )}
         </ul>
+        <NiceOneBud />
       </div>
     );
   }
