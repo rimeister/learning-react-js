@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
+import Bootstrap from 'bootstrap'
 import logo from './logo.svg';
 import './App.css';
 
-var toDos = [
+var todos = [
   // Array with list of ToDo objects in it.
   {
     toDoTitle: 'My First ToDo',
@@ -25,17 +26,18 @@ var toDos = [
 ]
 
 class App extends Component {
+
+  constructor(props) {
+    super(props);
+    this.state = {
+      // todo: toDos; A shorter way of writing this is simply 'todos'
+      todos
+    }
+  }
+
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
-      </div>
+
     );
   }
 }
