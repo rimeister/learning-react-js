@@ -8,20 +8,20 @@ var todos = [
   // Array with list of ToDo objects in it.
   {
     todoTitle: 'My First ToDo',
-    todoDescription: 'Sebastian',
-    todoResponsible:'My first Todo description',
+    todoDescription: 'My first Todo description',
+    todoResponsible: 'Sebastian',
     todoPriority: 'low'
   },
   {
     todoTitle: 'My Second ToDo',
-    todoDescription: 'Sebastian',
-    todoResponsible:'My Second Todo description',
+    todoDescription: 'My Second Todo description',
+    todoResponsible: 'Sebastian',
     todoPriority: 'medium'
   },
   {
     todoTitle: 'My Third ToDo',
-    todoDescription: 'Sebastian',
-    todoResponsible:'My Thid Todo description',
+    todoDescription: 'My Thid Todo description',
+    todoResponsible: 'Sebastian',
     todoPriority: 'high'
   }
 ]
@@ -43,7 +43,8 @@ class App extends Component {
         <ul className="list-group">
           {this.state.todos.map((todo, index) =>
             <li className="list-group-item" key={index}>
-            <h4 className="list-group-item-heading">{todo.todoTitle}</h4>
+            <h4 className="list-group-item-heading">{todo.todoTitle} <small><span className="label label-info">{todo.todoPriority}</span></small></h4>
+            <p><span className="glyphicon glyphicon-user"></span>{todo.todoResponsible}</p>
             </li>
           )}
         </ul>
