@@ -7,21 +7,21 @@ var Bootstrap = require('bootstrap');
 var todos = [
   // Array with list of ToDo objects in it.
   {
-    toDoTitle: 'My First ToDo',
-    toDoDescription: 'Sebastian',
-    toDoResponsible:'My first Todo description',
+    todoTitle: 'My First ToDo',
+    todoDescription: 'Sebastian',
+    todoResponsible:'My first Todo description',
     todoPriority: 'low'
   },
   {
-    toDoTitle: 'My Second ToDo',
-    toDoDescription: 'Sebastian',
-    toDoResponsible:'My Second Todo description',
+    todoTitle: 'My Second ToDo',
+    todoDescription: 'Sebastian',
+    todoResponsible:'My Second Todo description',
     todoPriority: 'medium'
   },
   {
-    toDoTitle: 'My Third ToDo',
-    toDoDescription: 'Sebastian',
-    toDoResponsible:'My Thid Todo description',
+    todoTitle: 'My Third ToDo',
+    todoDescription: 'Sebastian',
+    todoResponsible:'My Thid Todo description',
     todoPriority: 'high'
   }
 ]
@@ -40,6 +40,13 @@ class App extends Component {
     return (
       <div className="container">
         <h4>Todo Count: <span className="badge">{this.state.todos.length}</span></h4>
+        <ul className="list-group">
+          {this.state.todos.map((todo, index) =>
+            <li className="list-group-item" key={index}>
+            <h4 className="list-group-item-heading">{todo.todoTitle}</h4>
+            </li>
+          )}
+        </ul>
       </div>
     );
   }
