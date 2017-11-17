@@ -48,6 +48,8 @@ class App extends Component {
   render() {
     return (
       <div className="container">
+        <TodoInput></TodoInput>
+        <hr/>
         <h4>Todo Count: <span className="badge">{this.state.todos.length}</span></h4>
         <ul className="list-group">
           {this.state.todos.map((todo, index) =>
@@ -66,5 +68,84 @@ class App extends Component {
 
 }
 
+class TodoInput extends Component {
+
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      todoTitle: '',
+      todoResponsible: '',
+      todoDescription: '',
+      todoPriority: 'Lowest'
+    }
+
+  }
+
+  render() {
+    return (
+      <div>
+      <h4>
+        <form className="form-horizontal" onSubmit={this.handleSubmit}>
+          <div className="form-group">
+            <label htmlFor="inputToDoTitle" className="col-sm-2 control-label">Title</label>
+            <div className="col-sm-10">
+              <input  name="todoTitle"
+                      type="text"
+                      className="form-control"
+                      id="inputToDoTitle"
+                      value={this.state.todoTitle}
+                      onChange={this.handleInputChange}
+                      placeholder="Title">
+              </input>
+            </div>
+          </div>
+          <div className="form-group">
+            <label htmlFor="inputToDoResponsible" className="col-sm-2 control-label">Responsible</label>
+            <div className="col-sm-10">
+              <input  name="todoResponsible"
+                      type="text"
+                      className="form-control"
+                      id="inputToDoResponsible"
+                      value={this.state.todoResponsible}
+                      onChange={this.handleInputChange}
+                      placeholder="Responsible">
+                </input>
+            </div>
+          </div>
+          <div className="form-group">
+            <label htmlFor="inputToDoDesc" className="col-sm-2 control-label">Description</label>
+            <div className="col-sm-10">
+              <textarea  name="todoDescription"
+                      className="form-control"
+                      id="inputToDoDesc"
+                      value={this.state.todoDescription}
+                      onChange={this.handleInputChange}>
+              </textarea>
+            </div>
+          </div>
+          <div className="form-group">
+            <label htmlFor="inputToDoPriority" className="col-sm-2 control-label">Priority</label>
+            <div className="col-sm-10">
+              <select   name="todoPriority"
+                        className="form-control"
+                        id="inputToDoPriority"
+                        value={this.state.todoPriority}
+                        onChange={this.handleInputChange}>
+                <option>Lowest</option>
+                <option>Low</option>
+                <option>Medium</option>
+                <option>High</option>
+                <option>Highest</option>
+              </select>
+            </div>
+          </div>
+        </form>
+      </h4>
+      </div>
+    );
+  }
+
+}
 
 export default App;
