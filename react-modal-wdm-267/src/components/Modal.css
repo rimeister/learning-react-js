@@ -1,0 +1,101 @@
+.Modal {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  padding: 1rem;
+  background-color: rgba(0, 0, 0, 0.75);
+  z-index: 100;
+  animation: fadeInBackground 0.2s;
+}
+
+.Modal__container {
+  min-width: 40%; 
+  max-width: 100%;
+  min-height: 3em;
+  max-height: 100vh;
+  overflow: scroll;
+  position: relative;
+  background-color: white;
+  color: #111111;
+  animation: fadeInModal 0.2s;
+}
+
+@media(min-width: 400px) {
+  .Modal__container {
+    max-width: 80%;
+  }
+}
+
+.Modal__close {
+  appearance: none;
+  border: 0;
+  font-size: 2em;
+  font-family: inherit;
+  padding: 0 0.5em;
+  position: absolute;
+  right: 0;
+  top: 0;
+  cursor: pointer;
+   background: none; 
+}
+
+.Modal__close:focus, .Modal__close:hover {
+  color: #444444;
+}
+
+.Modal[data-hiding=true] {
+  animation: fadeOutBackground 0.2s forwards;
+}
+
+.Modal[data-hiding=true] .Modal__container {
+  animation: fadeOutModal 0.2s forwards;
+}
+
+@keyframes fadeInBackground {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeInModal {
+  from {
+    transform: translateY(10%);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes fadeOutBackground {
+  from {
+    opacity: 1;
+  }
+
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes fadeOutModal {
+  from {
+    transform: translateY(0);
+    opacity: 1;
+  }
+
+  to {
+    transform: translateY(-10%);
+    opacity: 0;
+  }
+}
