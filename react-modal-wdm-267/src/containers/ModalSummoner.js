@@ -15,7 +15,9 @@ function mapStateToProps(state) {
 // Create functions that will dispatch actions to show modals
 function mapDispatchToProps(dispatch) {
   return {
-    
+    showMailingListModal: () => {
+    	dispatch(showModal('MAILING_LIST'))
+    },
   }
 }
 
